@@ -1,10 +1,9 @@
 ## OSME-Sanctions
 
-This repository was designed for Ongoing Sanctions in the Middle East report. The associated R script and HTML leaflet file are included. 
+This repository was designed for the Ongoing Sanctions in the Middle East report. The associated R script and HTML leaflet file are included.
 
-While this repo won't be able to directly applied to other projects, it includes a solid framework for understanding how lealet and R can be used to create geopolitical maps.
+While this repository won't be directly applicable to other projects, it provides a solid framework for understanding how leaflet and R can be used to create geopolitical maps.
 
-The visualization is hosted on my github pages site. 
+The visualization is hosted on my GitHub Pages site.
 
-https://londonpolitica.com/sanctions
-
+[Click here to visit the visualization](https://londonpolitica.com/sanctions)
