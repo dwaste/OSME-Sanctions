@@ -29,6 +29,7 @@ palNumInd <- colorNumeric("Reds", df$number_target_individuals, na.color = "whit
 palNumEnt <- colorNumeric("Reds", df$number_target_entities, na.color = "white")
 palTerror <- colorFactor(c("white", "#d51f1f"), df$is_terrorist, na.color = "white")
 palIntEnf <- colorNumeric("Greens", df$intl_enforcement, na.color = "white")
+palFin <- colorFactor(c("white", "#28d64d"), df$financial, na.color = "white")
 
 df$name[2] <- "Gaza"
 
@@ -39,7 +40,6 @@ recode_mapping <- c("1" = "Energy",
                     "5" = "Banking",
                     "6" = "Other")
 
-palFin <- colorFactor(c("white", "#28d64d"), df$financial, na.color = "white")
 
 # Recode the column using the mapping
 df$financial_sector <- recode(df$financial_sector, !!!recode_mapping)
@@ -89,11 +89,8 @@ plot <- leaflet(df) %>%
   addLegend("bottomleft", title = paste0("<b>Number of Target Entities"),
             pal = palNumEnt, values = ~number_target_entities, opacity = .7, group = "Number of Target Entities", 
             na.label = "None") %>%
-  addPolygons(group = "Terrorist Organization", fill = ~is_terrorist , fillColor = ~palTerror(is_terrorist), weight = 4, 
+  addPolygons(group = "Terrorist Organisation", fill = ~is_terrorist , fillColor = ~palTerror(is_terrorist), weight = 4, 
               opacity = 0, label = ~name, fillOpacity = .75, popup = popup.form) %>%
-  addLegend("bottomleft", title = paste0("<b>Terrorist Organization"),
-            pal = palTerror, values = ~round(is_terrorist, digits = 0), opacity = .7, group = "Terrorist Organization", 
-            na.label = "None") %>%
   addPolygons(group = "International Enforcement", fill = ~intl_enforcement , fillColor = ~palIntEnf(intl_enforcement), weight = 4, 
               opacity = 0, label = ~name, fillOpacity = .75, popup = popup.form) %>%
   addLegend("bottomleft", title = paste0("<b>International Enforcement"),
@@ -114,10 +111,12 @@ plot <- leaflet(df) %>%
       };
       updateLegend();
       this.on('baselayerchange', e => updateLegend());
-    }") %>%
-  suspendScroll()
+    }")
 
 plot
+
+
+
 
 
 
